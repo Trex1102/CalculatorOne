@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             number2 = Float.parseFloat(b);
         }
 
+
         if(buttonText.equals("+")){
             float r = number1 + number2;
             String result = Float.toString(r);
@@ -75,6 +76,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             resultTV.setText(result);
         }
         if(buttonText.equals("/")){
+            if(number2 == 0){
+                resultTV.setText("Undefined");
+                return;
+            }
             float r = number1 / number2;
             String result = Float.toString(r);
             if(result.endsWith(".0")){
@@ -91,6 +96,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             resultTV.setText(result);
         }
         if(buttonText.equals("%")){
+            if(number2 == 0){
+                resultTV.setText("Undefined");
+                return;
+            }
+
             float r = number1 % number2;
             String result = Float.toString(r);
             if(result.endsWith(".0")){
